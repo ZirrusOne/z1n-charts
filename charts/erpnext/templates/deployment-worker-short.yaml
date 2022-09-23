@@ -24,7 +24,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
-       - name: populate-assets
+        - name: populate-assets
           {{- if .Values.worker.short.envVars }}
           env:
             {{- toYaml .Values.worker.short.envVars | nindent 12 }}
