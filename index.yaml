@@ -3,7 +3,7 @@ entries:
   erpnext:
   - apiVersion: v2
     appVersion: v14.1.1
-    created: "2022-09-23T15:28:47.944289172Z"
+    created: "2022-09-24T17:55:55.555339189Z"
     dependencies:
     - alias: redis-cache
       condition: redis-cache.enabled
@@ -29,13 +29,13 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 11.0.3
     description: Kubernetes Helm Chart for the latest stable ERPNext branch
-    digest: 7073b29ff9d0e2dddde599ab206e9febf12244324a98d9f20f7323155a6a31ab
+    digest: a2bd158876ef874ed7e1d799f1289ff62f163f00f7267d12c1ee5a8ce1bca723
     icon: https://raw.githubusercontent.com/frappe/design/master/logos/logo-2018/erpnext-logo-blue.svg
     name: erpnext
     type: application
     urls:
-    - https://github.com/ZirrusOne/helm-charts/releases/download/erpnext-1.0.8/erpnext-1.0.8.tgz
-    version: 1.0.8
+    - https://github.com/ZirrusOne/helm-charts/releases/download/erpnext-1.0.9/erpnext-1.0.9.tgz
+    version: 1.0.9
   - apiVersion: v2
     appVersion: v14.1.1
     created: "2022-09-23T14:29:26.796591474Z"
