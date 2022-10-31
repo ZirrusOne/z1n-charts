@@ -12,7 +12,7 @@
 nginx:
   replicaCount: 1
   image:
-          repository: 643938766223.dkr.ecr.us-east-1.amazonaws.com/z1n-erpnext-images/z1n-nginx
+    repository: 643938766223.dkr.ecr.us-east-1.amazonaws.com/z1n-erpnext-images/z1n-nginx
     tag: 1.1.2
     pullPolicy: IfNotPresent
   # config: |
