@@ -1,0 +1,55 @@
+fullnameOverride: ""
+nameOverride: ""
+checkmk:
+  siteName: CHANGEME
+  bootstrapPassword: ""
+  mailRelayHost: ""
+  timezone: America/Chicago
+image:
+  repository: checkmk/check-mk-raw
+  tag: >-
+    v2.3.0-2023.12.14@sha256:3770b2a8ee3ed7a9edd7f239782cbc754708f43dcb58cba423f9afdb5550286a
+  pullPolicy: IfNotPresent
+service:
+  checkmk:
+    type: ClusterIP
+    enabled: true
+    externalPort: 80
+    internalPort: 5000
+  agentreceiver:
+    type: ClusterIP
+    enabled: true
+    externalPort: 8000
+    internalPort: 8000
+  livestatus:
+    type: ClusterIP
+    enabled: true
+    externalPort: 6557
+    internalPort: 6557
+ingress:
+  hosts:
+    # A host with a z1n.one subdomain must always be included.
+    - CHANGEME.z1n.one
+  enabled: true
+  ingressClass: nginx
+  annotations: []
+  tls:
+    - secretName: monitor-CHANGEME-checkmk-tls
+      hosts:
+        - monitor.CHANGEME.z1n.one
+persistence:
+  omd:
+    storageClass: ""
+    existingClaim: ""
+    mountPath: /omd/sites
+    accessMode: ReadWriteOnce
+    size: 100Gi
+  agent-local:
+    storageClass: ""
+    existingClaim: ""
+    mountPath: /usr/lib/check_mk_agent/local
+    accessMode: ReadWriteOnce
+    size: 100Mi
+tmpfs:
+  size: 500Mi
+
