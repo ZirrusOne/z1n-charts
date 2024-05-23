@@ -281,4 +281,26 @@ entries:
     urls:
     - https://github.com/ZirrusOne/helm-charts/releases/download/erpnext-1.0.2/erpnext-1.0.2.tgz
     version: 1.0.2
+  promonitor:
+  - annotations:
+      catalog.cattle.io/display-name: Z1N CheckMk
+      category: Application
+    apiVersion: v2
+    appVersion: v2.3.0-2023.12.14@sha256:3770b2a8ee3ed7a9edd7f239782cbc754708f43dcb58cba423f9afdb5550286a
+    created: "2024-05-23T16:09:47.331718724Z"
+    description: Z1N CheckMk Helm Chart
+    digest: e6bcc07dc4def51eca8805569e90a7cd6d58e1e8cfd41f679c958ef2fd853e08
+    icon: https://raw.githubusercontent.com/ZirrusOne/z1n-charts/main/charts/checkmk/z1n-logo.png
+    keywords:
+    - checkmk
+    - monitoring
+    - prmoetheus
+    - z1n
+    maintainers:
+    - email: ops@zirrusone.com
+      name: Zirrus One
+    name: promonitor
+    urls:
+    - https://github.com/ZirrusOne/z1n-charts/releases/download/promonitor-1.1.8/promonitor-1.1.8.tgz
+    version: 1.1.8
 generated: "2022-09-23T14:29:26.796626057Z"
