@@ -1,5 +1,27 @@
 apiVersion: v1
 entries:
+  checkmk:
+  - annotations:
+      catalog.cattle.io/display-name: Z1N CheckMk
+      category: Application
+    apiVersion: v2
+    appVersion: v2.3.0-2023.12.14@sha256:3770b2a8ee3ed7a9edd7f239782cbc754708f43dcb58cba423f9afdb5550286a
+    created: "2024-05-23T16:21:26.179649317Z"
+    description: Z1N CheckMk Helm Chart
+    digest: 238e3f263caeded5ff59a7b9facde5d3decb34004a3c9ab11efaa39343b70099
+    icon: https://raw.githubusercontent.com/ZirrusOne/z1n-charts/main/charts/checkmk/z1n-logo.png
+    keywords:
+    - checkmk
+    - monitoring
+    - prmoetheus
+    - z1n
+    maintainers:
+    - email: ops@zirrusone.com
+      name: Zirrus One
+    name: checkmk
+    urls:
+    - https://github.com/ZirrusOne/z1n-charts/releases/download/checkmk-1.1.9/checkmk-1.1.9.tgz
+    version: 1.1.9
   erpnext:
   - apiVersion: v2
     appVersion: v14.1.1
