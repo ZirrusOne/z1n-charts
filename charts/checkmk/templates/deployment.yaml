@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ template "check-mk.fullname" . }}-checkmk
   labels:
-    app: {{ template "check-mk.name" . }}
+    app: {{ template "check-mk.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -11,11 +11,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "check-mk.name" . }}
+      app: {{ template "check-mk.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ template "check-mk.name" . }}
+        app: {{ template "check-mk.fullname" . }}
     spec:
       containers:
       - name: {{ .Values.checkmk.siteName }}
@@ -47,19 +47,19 @@ spec:
         volumeMounts:
         {{- range $key, $value := .Values.persistence }}
         {{- if not $value.existingClaim }}
-        - name: {{ template "check-mk.name" $ }}-{{ $key }}
+        - name: {{ template "check-mk.fullname" $ }}-{{ $key }}
           mountPath: {{ $value.mountPath }}
         {{- end }}
         {{- end }}
       volumes:
       {{- range $key, $value := .Values.persistence }}
       {{- if not $value.existingClaim }}
-        - name: {{ template "check-mk.name" $ }}-{{ $key }}
+        - name: {{ template "check-mk.fullname" $ }}-{{ $key }}
           persistentVolumeClaim:
             claimName: {{ template "check-mk.fullname" $ }}-{{ $key }}
       {{- end }}
       {{- end }}
-        - name: {{ template "check-mk.name" $ }}-tmpfs
+        - name: {{ template "check-mk.fullname" $ }}-tmpfs
           emptyDir:
             medium: Memory
             sizeLimit: {{ .Values.tmpfs.size }}

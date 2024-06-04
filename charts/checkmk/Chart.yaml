@@ -1,7 +1,7 @@
 apiVersion: v2
 name: checkmk
 description: Z1N CheckMk Helm Chart
-version: 1.1.9
+version: 1.1.10
 icon: "https://raw.githubusercontent.com/ZirrusOne/z1n-charts/main/charts/checkmk/z1n-logo.png"
 keywords: 
   - checkmk

@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: {{ include "check-mk.fullname" . }}
   labels:
-    app: {{ include "check-mk.name" . }}
+    app: {{ include "check-mk.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -19,16 +19,15 @@ spec:
     - host: {{ . }}
       http:
         paths:
-          {{- range $name, $svc := $.Values.service }}
-          {{- if and $svc.enabled (eq (toString $svc.externalPort) "80") }}
+          {{- $svc := $.Values.service.checkmk }}
+          {{- if $svc.enabled }}
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ include "check-mk.fullname" $ }}-{{ $name }}
+                name: {{ include "check-mk.fullname" $ }}-checkmk
                 port:
                   number: {{ $svc.externalPort }}
-          {{- end }}
           {{- end }}
     {{- end }}
   {{- if $.Values.ingress.tls }}
